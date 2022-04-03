@@ -48,6 +48,15 @@ cryptoRandomString({length: 10, characters: 'abc'});
 
 Returns a randomized string. [Hex](https://en.wikipedia.org/wiki/Hexadecimal) by default.
 
+### cryptoRandomString.async(options)
+
+Returns a promise which resolves to a randomized string. [Hex](https://en.wikipedia.org/wiki/Hexadecimal) by default.
+
+For most use-cases, there's really no good reason to use this async version. From the Node.js docs:
+
+> The `crypto.randomBytes()` method will not complete until there is sufficient entropy available. This should normally never take longer than a few milliseconds. The only time when generating the random bytes may conceivably block for a longer period of time is right after boot, when the whole system is still low on entropy.
+In general, anything async comes with some overhead on it's own.
+
 #### options
 
 Type: `object`
